@@ -16,6 +16,8 @@ const slides = document.querySelectorAll('.slide');
 const btnLeft = document.querySelector('.slider__btn--left');
 const btnRight = document.querySelector('.slider__btn--right');
 const dotContainer = document.querySelector('.dots');
+const clickNav = document.querySelector('.nav__links');
+const showBar = document.getElementById('close-bar');
 
 const openModal = function (e) {
   e.preventDefault();
@@ -82,7 +84,7 @@ btnScrollTo.addEventListener('click', function (e) {
 //   });
 // });
 // another means for the links
-document.querySelector('.nav__links').addEventListener('click', function (e) {
+clickNav.addEventListener('click', function (e) {
   e.preventDefault();
 
   //matching strategy
@@ -176,6 +178,7 @@ const stickyNav = function (entries) {
   //nav.classList.add("sticky");
   if (!entry.isIntersecting) nav.classList.add('sticky');
   else nav.classList.remove('sticky');
+  // showBar.classList.add('show');
 };
 const headerObserver = new IntersectionObserver(stickyNav, {
   root: null,
@@ -195,28 +198,28 @@ h1.lastElementChild.style.color = 'orangered';
 // to insert text programmatically in dom or html
 // const header = document.querySelector(".header");
 // const message = document.createElement("div");
-// message.classList.add("cookie-message");
-// message.innerHTML =
-//   'We use cookied for improved functionailty and analystics. <button class= "btn btn--close-cookie">Got it!</button>';
-// header.prepend(message); // first child on top of the header
-// // header.append(message); // last child below the header
+message.classList.add('cookie-message');
+message.innerHTML =
+  'get cookies to display  <button class= "btn btn--close-cookie">Accept!</button>';
+header.prepend(message); // first child on top of the header
+// header.append(message); // last child below the header
 
 // //to add it in both side first and last child
 // // header.append(message.cloneNode(true));
 // // header.before(message);
 // //header.after(message);
 
-// document
-//   .querySelector(".btn--close-cookie")
-//   .addEventListener("click", function () {
-//     // message.remove();
-//     message.parentElement.removeChild(message);
-//   });
-// message.style.height =
-//   Number.parseFloat(getComputedStyle(message).height, 10) + 10 + "px";
-// message.style.backgroundColor = "#37383d";
-// message.style.width = "120%";
-// message.style.height = "100px";
+document
+  .querySelector('.btn--close-cookie')
+  .addEventListener('click', function () {
+    // message.remove();
+    message.parentElement.removeChild(message);
+  });
+message.style.height =
+  Number.parseFloat(getComputedStyle(message).height, 10) + 10 + 'px';
+message.style.backgroundColor = '#37383d';
+message.style.width = '200%';
+message.style.height = '50px';
 
 //color changed in css root
 //setting one property to affect others
@@ -400,8 +403,30 @@ const activateDot = function (slide) {
 };
 activateDot(0);
 
+if (showBar) {
+  showBar.addEventListener('click', () => {
+    clickNav.classList.toggle('close-bar');
+    showBar.classList.add('hidden');
+  });
+}
+
+if (clickNav) {
+  clickNav.addEventListener('click', () => {
+    clickNav.classList.remove('close-bar');
+    showBar.classList.remove('hidden');
+  });
+}
+
 //to leave the site
 // window.addEventListener("beforeunload", function (e) {
 //   e.preventDefault();
 //   e.returnValue = "";
 // });
+
+// if (showBar) {
+//   showBar.addEventListener('click', () => {
+//     if (!clickNav.classList.toggle('close-bar'))
+//       clickNav.classList.remove('close-bar');
+//     else clickNav.toggle('close-bar');
+//   });
+// }
