@@ -1,44 +1,44 @@
-const modal = document.querySelector(".modal");
-const overlay = document.querySelector(".overlay");
-const btnCloseModal = document.querySelector(".btn--close-modal");
-const btnOpenModal = document.querySelectorAll(".btn--show-modal");
-const header = document.querySelector(".header");
-const message = document.createElement("div");
-const btnScrollTo = document.querySelector(".btn--scroll-to");
-const section1 = document.querySelector("#section--1");
-const h1 = document.querySelector("h1");
-const h2 = document.querySelector("h2");
-const nav = document.querySelector(".nav");
-const tabs = document.querySelectorAll(".operations__tab");
-const tabsContainer = document.querySelector(".operations__tab-container");
-const tabContent = document.querySelectorAll(".operations__content");
-const slides = document.querySelectorAll(".slide");
-const btnLeft = document.querySelector(".slider__btn--left");
-const btnRight = document.querySelector(".slider__btn--right");
-const dotContainer = document.querySelector(".dots");
+const modal = document.querySelector('.modal');
+const overlay = document.querySelector('.overlay');
+const btnCloseModal = document.querySelector('.btn--close-modal');
+const btnOpenModal = document.querySelectorAll('.btn--show-modal');
+const header = document.querySelector('.header');
+const message = document.createElement('div');
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+const h1 = document.querySelector('h1');
+const h2 = document.querySelector('h2');
+const nav = document.querySelector('.nav');
+const tabs = document.querySelectorAll('.operations__tab');
+const tabsContainer = document.querySelector('.operations__tab-container');
+const tabContent = document.querySelectorAll('.operations__content');
+const slides = document.querySelectorAll('.slide');
+const btnLeft = document.querySelector('.slider__btn--left');
+const btnRight = document.querySelector('.slider__btn--right');
+const dotContainer = document.querySelector('.dots');
 
 const openModal = function (e) {
   e.preventDefault();
-  modal.classList.remove("hidden");
-  overlay.classList.remove("hidden");
+  modal.classList.remove('hidden');
+  overlay.classList.remove('hidden');
 };
 
 const closeModal = function (e) {
   e.preventDefault();
-  modal.classList.add("hidden");
-  overlay.classList.add("hidden");
+  modal.classList.add('hidden');
+  overlay.classList.add('hidden');
 };
 
-btnOpenModal.forEach((btn) => btn.addEventListener("click", openModal));
+btnOpenModal.forEach((btn) => btn.addEventListener('click', openModal));
 
 // for (let i = 0; i < btnOpenModal.length; i++)
 // btnOpenModal[i].addEventListener("click", openModal);
 
-btnCloseModal.addEventListener("click", closeModal);
-overlay.addEventListener("click", closeModal);
+btnCloseModal.addEventListener('click', closeModal);
+overlay.addEventListener('click', closeModal);
 
-document.addEventListener("keydown", function (x) {
-  if (x.key === "Escape" && !modal.classList.contains("hidden")) {
+document.addEventListener('keydown', function (x) {
+  if (x.key === 'Escape' && !modal.classList.contains('hidden')) {
     closeModal();
   }
 });
@@ -55,7 +55,7 @@ document.addEventListener("keydown", function (x) {
 //   // section2.scrollIntoView({ behavior: "smooth" });
 // });
 
-btnScrollTo.addEventListener("click", function (e) {
+btnScrollTo.addEventListener('click', function (e) {
   const s1coords = section1.getBoundingClientRect();
   //   // console.log(s1coords);
   //   // window.scrollTo(
@@ -69,7 +69,7 @@ btnScrollTo.addEventListener("click", function (e) {
   //   //   behavior: "smooth",
   //   // });
   //   //easy and modren way to do it
-  section1.scrollIntoView({ behavior: "smooth" });
+  section1.scrollIntoView({ behavior: 'smooth' });
 });
 
 //for all link to scroll
@@ -82,13 +82,13 @@ btnScrollTo.addEventListener("click", function (e) {
 //   });
 // });
 // another means for the links
-document.querySelector(".nav__links").addEventListener("click", function (e) {
+document.querySelector('.nav__links').addEventListener('click', function (e) {
   e.preventDefault();
 
   //matching strategy
-  if (e.target.classList.contains("nav__link")) {
-    const id = e.target.getAttribute("href");
-    document.querySelector(id).scrollIntoView({ behavior: "smooth" });
+  if (e.target.classList.contains('nav__link')) {
+    const id = e.target.getAttribute('href');
+    document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
   }
 });
 
@@ -96,20 +96,20 @@ document.querySelector(".nav__links").addEventListener("click", function (e) {
 // const tabsContainer = document.querySelector(".operations__tab-container");
 // const tabContent = document.querySelectorAll(".operations__content");
 
-tabsContainer.addEventListener("click", function (e) {
-  const clicked = e.target.closest(".operations__tab");
+tabsContainer.addEventListener('click', function (e) {
+  const clicked = e.target.closest('.operations__tab');
   // a guard clause
   if (!clicked) return;
   // for one clicked to move up and the rest down ,also remove the two when clicked on one
-  tabs.forEach((t) => t.classList.remove("operations__tab--active"));
-  tabContent.forEach((c) => c.classList.remove("operations__content--active"));
+  tabs.forEach((t) => t.classList.remove('operations__tab--active'));
+  tabContent.forEach((c) => c.classList.remove('operations__content--active'));
   //for one clicked to move up or activate tab
-  clicked.classList.add("operations__tab--active");
+  clicked.classList.add('operations__tab--active');
 
   // activate content when clicked
   document
     .querySelector(`.operations__content--${clicked.dataset.tab}`)
-    .classList.add("operations__content--active");
+    .classList.add('operations__content--active');
 });
 
 //menu fade animation on th menu
@@ -140,10 +140,10 @@ tabsContainer.addEventListener("click", function (e) {
 // });
 //modern way easy
 const handleHover = function (e, opacity) {
-  if (e.target.classList.contains("nav__link")) {
+  if (e.target.classList.contains('nav__link')) {
     const linkClicked = e.target;
-    const siblings = linkClicked.closest(".nav").querySelectorAll(".nav__link");
-    const logo = linkClicked.closest(".nav").querySelector("img");
+    const siblings = linkClicked.closest('.nav').querySelectorAll('.nav__link');
+    const logo = linkClicked.closest('.nav').querySelector('img');
 
     siblings.forEach((el) => {
       if (el !== linkClicked) el.style.opacity = this; //opacity where this is because i use bind
@@ -158,8 +158,8 @@ const handleHover = function (e, opacity) {
 //   handleHover(x, 1);
 // });
 // another for this nav.event called bind
-nav.addEventListener("mouseover", handleHover.bind(0.5));
-nav.addEventListener("mouseout", handleHover.bind(1));
+nav.addEventListener('mouseover', handleHover.bind(0.5));
+nav.addEventListener('mouseout', handleHover.bind(1));
 
 //sticky nav bar event
 // const initialCords = section1.getBoundingClientRect();
@@ -174,8 +174,8 @@ const navHeight = nav.getBoundingClientRect().height;
 const stickyNav = function (entries) {
   const [entry] = entries;
   //nav.classList.add("sticky");
-  if (!entry.isIntersecting) nav.classList.add("sticky");
-  else nav.classList.remove("sticky");
+  if (!entry.isIntersecting) nav.classList.add('sticky');
+  else nav.classList.remove('sticky');
 };
 const headerObserver = new IntersectionObserver(stickyNav, {
   root: null,
@@ -185,12 +185,12 @@ const headerObserver = new IntersectionObserver(stickyNav, {
 headerObserver.observe(header);
 
 //*dom travsing */
-h1.firstElementChild.style.color = "white";
-h1.lastElementChild.style.color = "orangered";
+h1.firstElementChild.style.color = 'white';
+h1.lastElementChild.style.color = 'orangered';
 //h1.closest(".header").style.background = "var( --gradient-secondary)";
 //h2.closest(".section").style.background = "var( --gradient-primary)";
 [...h1.parentElement.children].forEach(function (el) {
-  if (el !== h1) el.style.transform = "scale(1)";
+  if (el !== h1) el.style.transform = 'scale(1)';
 });
 // to insert text programmatically in dom or html
 // const header = document.querySelector(".header");
@@ -220,7 +220,7 @@ h1.lastElementChild.style.color = "orangered";
 
 //color changed in css root
 //setting one property to affect others
-document.documentElement.style.setProperty("--color-primary", "orangered");
+document.documentElement.style.setProperty('--color-primary', 'orangered');
 
 // // other event listener
 // const h1 = document.querySelector("h1");
@@ -268,11 +268,11 @@ document.documentElement.style.setProperty("--color-primary", "orangered");
 // });
 
 // revealing sections animation section--hidden
-const allSections = document.querySelectorAll(".section");
+const allSections = document.querySelectorAll('.section');
 const revealSection = function (entries, observes) {
   const [entry] = entries;
   if (!entry.isIntersecting) return;
-  entry.target.classList.remove("section--hidden");
+  entry.target.classList.remove('section--hidden');
 
   observes.unobserve(entry.target);
 };
@@ -282,7 +282,7 @@ const sectionObserver = new IntersectionObserver(revealSection, {
 });
 allSections.forEach(function (section) {
   sectionObserver.observe(section);
-  section.classList.add("section--hidden");
+  section.classList.add('section--hidden');
 });
 
 //lazy loading images animationa fliter
@@ -345,8 +345,8 @@ const prevSlide = function () {
   goToSlide(curSlide);
   activateDot(curSlide);
 };
-btnRight.addEventListener("click", nextSlide);
-btnLeft.addEventListener("click", prevSlide);
+btnRight.addEventListener('click', nextSlide);
+btnLeft.addEventListener('click', prevSlide);
 // if (curSlide === maxSlide - 1) {
 //   curSlide = 0;
 // } else {
@@ -365,24 +365,24 @@ btnLeft.addEventListener("click", prevSlide);
 //   );
 // });
 
-document.addEventListener("keydown", function (event) {
-  if (event.key == "ArrowLeft") prevSlide();
+document.addEventListener('keydown', function (event) {
+  if (event.key == 'ArrowLeft') prevSlide();
 
-  event.key === "ArrowRight" && nextSlide();
+  event.key === 'ArrowRight' && nextSlide();
 });
 
 //dots slide
 const createDots = function () {
   slides.forEach(function (_, i) {
     dotContainer.insertAdjacentHTML(
-      "beforeend",
+      'beforeend',
       `<button class="dots__dot" data-slide="${i}"></button>`
     );
   });
 };
 createDots();
-dotContainer.addEventListener("click", function (e) {
-  if (e.target.classList.contains("dots__dot")) {
+dotContainer.addEventListener('click', function (e) {
+  if (e.target.classList.contains('dots__dot')) {
     const { slide } = e.target.dataset;
     goToSlide(slide);
     activateDot(slide);
@@ -391,12 +391,12 @@ dotContainer.addEventListener("click", function (e) {
 // to color the dot for current slide
 const activateDot = function (slide) {
   document
-    .querySelectorAll(".dots__dot")
-    .forEach((dot) => dot.classList.remove("dots__dot--active"));
+    .querySelectorAll('.dots__dot')
+    .forEach((dot) => dot.classList.remove('dots__dot--active'));
 
   document
     .querySelector(`.dots__dot[data-slide="${slide}"]`)
-    .classList.add("dots__dot--active");
+    .classList.add('dots__dot--active');
 };
 activateDot(0);
 

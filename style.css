@@ -24,7 +24,7 @@ html {
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 300;
   color: #444; /* all text color will inherit*/
   line-height: 1.9;
@@ -215,7 +215,7 @@ h4 {
 
 .highlight::after {
   display: block;
-  content: "";
+  content: '';
   position: absolute;
   bottom: 0;
   left: 0;
@@ -489,7 +489,7 @@ h4 {
 }
 
 .testimonial::before {
-  content: "\201C";
+  content: '\201C';
   position: absolute;
   top: -5.7rem;
   left: -6.8rem;
@@ -780,4 +780,53 @@ h4 {
     display: grid;
     flex-direction: column-reverse;
   } */
+}
+
+@media only screen and (min-width: 320px) {
+  .features__img {
+    min-width: 30em;
+    margin-right: 7rem;
+  }
+  .features__header {
+    min-width: 25rem;
+  }
+  .word {
+    min-width: 30rem;
+  }
+  .footer__nav {
+    display: block;
+    padding: 1rem;
+  }
+  .footer__item {
+    padding: 1rem;
+  }
+  .content-footer {
+    min-width: 20rem;
+  }
+  .footer__logo {
+    max-width: 20rem;
+    margin-top: 2rem;
+  }
+  .footer__copyright {
+    margin-top: 2rem;
+  }
+  .modal__form {
+    min-width: 30rem;
+  }
+  .word-1 {
+  }
+  .operations {
+    min-width: 50rem;
+    overflow: scroll;
+    margin-top: 2rem;
+  }
+  .operations__tab-container {
+    margin-top: 4rem;
+  }
+  .nav.nav.sticky {
+    min-width: 70rem;
+  }
+  .nav__logo {
+    margin-left: 3.5rem;
+  }
 }
