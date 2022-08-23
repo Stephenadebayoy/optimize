@@ -829,4 +829,7 @@ h4 {
   .nav__logo {
     margin-left: 3.5rem;
   }
+  .word-2 {
+    font-size: 2rem;
+  }
 }
